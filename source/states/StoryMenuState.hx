@@ -65,7 +65,6 @@ class StoryMenuState extends MusicBeatState
 		add(WeekBG);
 		//WeekBG.scale.x = WeekBG.scale.y = 0.9;
 		WeekBG.cameras = [bgCamera];
-		PlayState.instance.luaDebugGroup.cameras = [debugCamera];
 		
 		UpBlackRect = new FlxSprite(0, 0).makeGraphic(FlxG.width, 110, FlxColor.BLACK);
 	    
@@ -147,7 +146,7 @@ class StoryMenuState extends MusicBeatState
 		if (haxe.Json.parse(loadedWeeks[nowChoose]).startUnlocked)
 		{
 			var songArray:Array<String> = [];
-			var leWeek:Array<Dynamic> = loadedWeeks[nowChoose].songs;
+			var leWeek:Array<Dynamic> = haxe.Json.parse(loadedWeeks[nowChoose]).songs;
 			for (i in 0...leWeek.length) {
 				songArray.push(leWeek[i][0]);
 			}
@@ -156,7 +155,6 @@ class StoryMenuState extends MusicBeatState
 			{
 				PlayState.storyPlaylist = songArray;
 				PlayState.isStoryMode = true;
-				selectedWeek = true;
 				
 				PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
 				PlayState.campaignScore = 0;

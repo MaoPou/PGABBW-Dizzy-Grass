@@ -22,7 +22,7 @@ class StoryMenuState extends MusicBeatState
 
     var nowChoose:Int;
     //WeekData就是week文件里的json
-    var loadedWeeks:Array<WeekData> = [
+    var loadedWeeks:Array<Dynamic> = [
         {
 	        "songs": [
 	    	    ["Tutorial", "gf", [165, 0, 77]]

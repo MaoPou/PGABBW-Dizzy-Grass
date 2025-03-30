@@ -8,6 +8,23 @@ import backend.Paths;
 import flixel.effects.FlxFlicker;
 import flixel.text.FlxText;
 
+typedef WeekFile =
+{
+	// JSON variables
+	var songs:Array<Dynamic>;
+	var weekCharacters:Array<String>;
+	var weekBackground:String;
+	var weekBefore:String;
+	var storyName:String;
+	var weekName:String;
+	var freeplayColor:Array<Int>;
+	var startUnlocked:Bool;
+	var hiddenUntilUnlocked:Bool;
+	var hideStoryMode:Bool;
+	var hideFreeplay:Bool;
+	var difficulties:String;
+}
+
 class StoryMenuState extends MusicBeatState
 {
     var bgCamera:FlxCamera;
@@ -22,8 +39,8 @@ class StoryMenuState extends MusicBeatState
 
     var nowChoose:Int;
     //WeekData就是week文件里的json
-    var loadedWeeks:Array<Dynamic> = [
-        {
+    var loadedWeeks:Array<WeekFile> = [
+		{
 	        "songs": [
 	    	    ["Tutorial", "gf", [165, 0, 77]]
 	        ],
@@ -42,8 +59,8 @@ class StoryMenuState extends MusicBeatState
 
 	        "hideStoryMode": false,
 	        "hideFreeplay": false
-        }
-    ];
+		}
+	];
 	override function create()
 	{
 	    PlayState.isStoryMode = true;

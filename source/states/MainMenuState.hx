@@ -79,7 +79,7 @@ class MainMenuState extends MusicBeatState
 	    add(lol);
 	    
 	    /////
-	    var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('images/MainMenu/menuBG', null, false));
+	    var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('MainMenu/menuBG', null, false));
 		bg.scrollFactor.set(0, 0);
 		bg.scale.x = FlxG.width / bg.width;
 		bg.scale.y = FlxG.height / bg.height;
@@ -129,11 +129,6 @@ class MainMenuState extends MusicBeatState
 	    lol.cameras = [camOpt];
 	    nowtime = nowtime + 0.1;
 	    createShaders('damn' ,nowtime);
-	    if (freakyMenu != null){
-	        freakyMenu.onComplete = function() {
-	            freakyMenu = null;
-	        };
-	    }
 	
 	    camOpt.zoom = camSp.zoom;
 	    

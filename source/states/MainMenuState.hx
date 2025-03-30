@@ -130,7 +130,7 @@ class MainMenuState extends MusicBeatState
 	{
 	    lol.cameras = [camOpt];
 	    nowtime = nowtime + 0.1;
-	    if(shader != null) shader.setFloat('iTime' ,itime);
+	    if(shader != null) AllShader.setFloat('iTime' ,itime);
 	
 	    camOpt.zoom = camSp.zoom;
 	    

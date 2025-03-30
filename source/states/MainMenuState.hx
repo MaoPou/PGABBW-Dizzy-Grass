@@ -71,6 +71,7 @@ class MainMenuState extends MusicBeatState
 		
 	    FlxG.cameras.add(camSp,false);
 	    FlxG.cameras.add(camOpt,false);
+	    FlxG.cameras.add(camHit,false);
 	    
 	    lol = new FlxText(0, 0, FlxG.width, "", 20);
 	    

@@ -179,7 +179,7 @@ class MainMenuState extends MusicBeatState
 						    PlayState.stageUI = 'normal';
 					    }
 				    }
-			    }););
+			    });
 	            FlxG.sound.play(Paths.sound('confirmMenu'));
 	            canChoose = false;
 	            if (moveTween != null) {

@@ -46,8 +46,11 @@ jobs:
       - name: Move Android File
         run: mv /home/runner/${{ env.PROJECT_NAME }}-release.apk /home/runner/${{ env.PROJECT_NAME }}-Android.apk
 
-      - name: Zip windows
-        run: zip export/release/windows/bin
+      - name: Download Windows Build
+        uses: actions/download-artifact@main
+        with:
+           name: windowsBuild
+           path: /home/runner
 
       - name: Publish The Release
         uses: softprops/action-gh-release@v2
@@ -58,4 +61,3 @@ jobs:
           files: |
             /home/runner/*.apk
             /home/runner/*.zip
-            export/release/windows/*.zip

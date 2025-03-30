@@ -38,7 +38,7 @@ class MainMenuState extends MusicBeatState
 	var filter:ShaderFilter;
 	var bpm:Int = 25;
 	var logo:FlxSprite;
-	var freakyMenu:FlxSound;
+	//var freakyMenu:FlxSound;
 	
 	var idleTween:Array<FlxTween> = [];
 	var sleepTween:Array<FlxTween> = [];
@@ -59,16 +59,16 @@ class MainMenuState extends MusicBeatState
 	    var officeTime = new FlxTimer().start(0.145, function(tmr:FlxTimer){new FlxTimer().start(60 / bpm, function(tmr:FlxTimer){CamZoom();});});
 	    var officeTimeLogo = new FlxTimer().start(0.36, function(tmr:FlxTimer){new FlxTimer().start(30 / bpm,function(tmr:FlxTimer) {LogoAngle();});});
 	
-	    freakyMenu = FlxG.sound.play(Paths.music('freakyMenu','shared'));
+	    //freakyMenu = FlxG.sound.play(Paths.music('freakyMenu','shared'));
 	    
 	    camSp = new FlxCamera();
 	    camOpt = new FlxCamera();
 	    
 	    camHit = new FlxCamera();
 	    
-	    camOpt.bgColor = 0x00000000;
-	    camHit.bgColor = 0x00000000;
-	    camOpt.height = 900;
+	    camOpt.bgColor.alpha = 0;
+	    camHit.bgColor.alpha = 0;
+	    camOpt.bgColor.alpha = 0;
 	    
 	    FlxG.cameras.add(camSp,false);
 	    FlxG.cameras.add(camOpt,false);

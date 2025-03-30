@@ -46,6 +46,9 @@ jobs:
       - name: Move Android File
         run: mv /home/runner/${{ env.PROJECT_NAME }}-release.apk /home/runner/${{ env.PROJECT_NAME }}-Android.apk
 
+      - name: Zip windows
+        run: zip export/release/windows/bin
+
       - name: Publish The Release
         uses: softprops/action-gh-release@v2
         with:
@@ -55,3 +58,4 @@ jobs:
           files: |
             /home/runner/*.apk
             /home/runner/*.zip
+            export/release/windows/*.zip

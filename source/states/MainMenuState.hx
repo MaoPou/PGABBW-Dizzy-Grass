@@ -18,9 +18,10 @@ import options.OptionsState;
 class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.7.3';
-	var camGame:FlxCamera;
+	
 	var camSp:FlxCamera;
         var camOpt:FlxCamera;
+	var camHit:FlxCamera;
 	
 	var lol:FlxText;
 	var AllOption:Array<String> = [
@@ -37,7 +38,6 @@ class MainMenuState extends MusicBeatState
 	var filter:ShaderFilter;
 	var bpm:Int = 25;
 	var logo:FlxSprite;
-	//var freakyMenu:FlxSound;
 	
 	var idleTween:Array<FlxTween> = [];
 	var sleepTween:Array<FlxTween> = [];
@@ -62,10 +62,13 @@ class MainMenuState extends MusicBeatState
 	    camGame = initPsychCamera();
 	    camSp = new FlxCamera();
 	    camOpt = new FlxCamera();
+	    camHit = new FlxCamera();
 	    
 	    camOpt.bgColor.alpha = 0;
 	    camSp.bgColor.alpha = 0;
-	    
+	    camHit.bgColor.alpha = 0;
+	    camOpt.height = 900;
+		
 	    FlxG.cameras.add(camSp,false);
 	    FlxG.cameras.add(camOpt,false);
 	    
@@ -114,7 +117,7 @@ class MainMenuState extends MusicBeatState
 		}
 		UpdateOptions();
 		addTouchPad("UP_DOWN", "A_B");
-		
+		touchPad.cameras[camHit];
 		super.create();
 		var LogoShake = new FlxTimer().start(0.001, function(tmr:FlxTimer){LogoShake();});
 	}

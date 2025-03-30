@@ -117,7 +117,7 @@ class MainMenuState extends MusicBeatState
 		}
 		UpdateOptions();
 		addTouchPad("UP_DOWN", "A_B");
-		touchPad.cameras[camHit];
+		touchPad.cameras = [camHit];
 		super.create();
 		var LogoShake = new FlxTimer().start(0.001, function(tmr:FlxTimer){LogoShake();});
 	}

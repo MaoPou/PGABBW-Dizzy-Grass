@@ -59,7 +59,7 @@ class MainMenuState extends MusicBeatState
 	    var officeTime = new FlxTimer().start(0.145, function(tmr:FlxTimer){new FlxTimer().start(60 / bpm, function(tmr:FlxTimer){CamZoom();});});
 	    var officeTimeLogo = new FlxTimer().start(0.36, function(tmr:FlxTimer){new FlxTimer().start(30 / bpm,function(tmr:FlxTimer) {LogoAngle();});});
 	
-	    //freakyMenu = FlxG.sound.play(Paths.music('freakyMenu','shared'));
+	    //freakyMenu = FlxG.sound.play(Paths.music('freakyMenu'));
 	    
 	    camSp = new FlxCamera();
 	    camOpt = new FlxCamera();

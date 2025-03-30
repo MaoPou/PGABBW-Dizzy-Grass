@@ -8,43 +8,42 @@ import backend.Paths;
 import flixel.effects.FlxFlicker;
 import flixel.text.FlxText;
 
-var bgCamera:FlxCamera;
-var debugCamera:FlxCamera;
-var WeekBG:FlxSprite;
-var UpBlackRect:FlxSprite;
-var DownBlackRect:FlxSprite;
-var leftArrow:FlxSprite;
-var rightArrow:FlxSprite;
-
-public var weekCompleted:Map<String, Bool> = new Map<String, Bool>();
-
-var nowChoose:Int;
-//WeekData就是week文件里的json
-var loadedWeeks:Array<WeekData> = [
-    {
-	    "songs": [
-		    ["Tutorial", "gf", [165, 0, 77]]
-	    ],
-
-	    "weekCharacters": [
-	    	"",
-		    "bf",
-		    "gf"
-	    ],
-	    "weekBackground": "stage",
-
-	    "storyName": "",
-	    "weekBefore": "tutorial",
-	    "weekName": "Tutorial",
-	    "startUnlocked": true,
-
-	    "hideStoryMode": false,
-	    "hideFreeplay": false
-    }
-];
-
 class StoryMenuState extends MusicBeatState
 {
+    var bgCamera:FlxCamera;
+    var debugCamera:FlxCamera;
+    var WeekBG:FlxSprite;
+    var UpBlackRect:FlxSprite;
+    var DownBlackRect:FlxSprite;
+    var leftArrow:FlxSprite;
+    var rightArrow:FlxSprite;
+
+    public static var weekCompleted:Map<String, Bool> = new Map<String, Bool>();
+
+    var nowChoose:Int;
+    //WeekData就是week文件里的json
+    var loadedWeeks:Array<WeekData> = [
+        {
+	        "songs": [
+	    	    ["Tutorial", "gf", [165, 0, 77]]
+	        ],
+
+	        "weekCharacters": [
+	        	"",
+	    	    "bf",
+		        "gf"
+	        ],
+	       "weekBackground": "stage",
+
+	        "storyName": "",
+	        "weekBefore": "tutorial",
+	        "weekName": "Tutorial",
+	        "startUnlocked": true,
+
+	        "hideStoryMode": false,
+	        "hideFreeplay": false
+        }
+    ];
 	override function create()
 	{
 	    PlayState.isStoryMode = true;

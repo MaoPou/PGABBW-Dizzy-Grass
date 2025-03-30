@@ -12,12 +12,12 @@
       "type": "haxelib",
       "version": "9.3.2"
     },
-    {
+        {
       "name": "flixel",
       "type": "git",
       "dir": null,
-      "ref": "dev",
-      "url": "https://github.com/beihu235/flixel"
+      "ref": "5.8.0",
+      "url": "https://github.com/MobilePorting/flixel"
     },
     {
       "name": "flixel-addons",

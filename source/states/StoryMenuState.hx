@@ -49,12 +49,12 @@ class StoryMenuState extends MusicBeatState
 	    PlayState.isStoryMode = true;
 	    bgCamera = new FlxCamera();
 	    debugCamera = new FlxCamera();
+
+	    bgCamera.bgColor.alpha = 0;
+	    debugCamera.bgColor.alpha = 0;
 	    
 	    FlxG.cameras.add(bgCamera,false);
 	    FlxG.cameras.add(debugCamera,false);
-	    
-	    bgCamera.bgColor.alpha = 0;
-	    debugCamera.bgColor.alpha = 0;
 	    
 	    var bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		add(bg);

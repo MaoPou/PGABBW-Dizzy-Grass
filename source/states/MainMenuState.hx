@@ -17,6 +17,7 @@ import options.OptionsState;
 
 class MainMenuState extends MusicBeatState
 {
+	public static var psychEngineVersion:String = '0.7.3';
 	var camSp:FlxCamera;
 	var camOpt:FlxCamera;
 	

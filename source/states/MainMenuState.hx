@@ -5,7 +5,6 @@ import backend.ClientPrefs;
 
 import flixel.text.FlxText;
 import flixel.FlxGame;
-import flixel.group.FlxTypedGroup;
 import flixel.addons.display.FlxRuntimeShader;
 import flixel.effects.FlxFlicker;
 import flixel.system.frontEnds.SoundFrontEnd;
@@ -24,7 +23,7 @@ class MainMenuState extends MusicBeatState
 	var camHit:FlxCamera;
 	
 	var lol:FlxText;
-	var AllOption:Array = [
+	var AllOption:Array<String> = [
 		'Stroyimage',
 		'Freeplayimage',
 		'Creditsimage',

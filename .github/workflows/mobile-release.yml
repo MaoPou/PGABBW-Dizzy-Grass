@@ -19,6 +19,11 @@ jobs:
             buildArgs: "android -final -D officialBuild"
             artifactName: androidBuild
             artifactPath: "export/release/android/bin/app/build/outputs/apk/release/*.apk"
+          - name: Windows
+            os: windows-2022
+            buildArgs: windows
+            artifactName: windowsBuild-x86_64
+            artifactPath: export\release\windows\bin\*
     uses: ./.github/workflows/build.yml
     with:
         name: ${{ matrix.name }}

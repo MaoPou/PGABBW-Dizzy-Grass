@@ -19,6 +19,7 @@ class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.7.3';
 	
+	var camGame:FlxCamera;
 	var camSp:FlxCamera;
         var camOpt:FlxCamera;
 	var camHit:FlxCamera;
@@ -51,7 +52,6 @@ class MainMenuState extends MusicBeatState
 	
 	var LogoAngles:Float = 3;
 	var shakermax:Int = 25;
-	
 	
 	override function create()
 	{

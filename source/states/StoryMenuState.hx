@@ -16,7 +16,7 @@ var DownBlackRect:FlxSprite;
 var leftArrow:FlxSprite;
 var rightArrow:FlxSprite;
 
-public static var weekCompleted:Map<String, Bool> = new Map<String, Bool>();
+public var weekCompleted:Map<String, Bool> = new Map<String, Bool>();
 
 var nowChoose:Int;
 //WeekData就是week文件里的json

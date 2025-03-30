@@ -52,6 +52,8 @@ class MainMenuState extends MusicBeatState
 	
 	var LogoAngles:Float = 3;
 	var shakermax:Int = 25;
+
+	public var AllShader:FlxRuntimeShader;
 	
 	override function create()
 	{
@@ -119,6 +121,7 @@ class MainMenuState extends MusicBeatState
 		UpdateOptions();
 		addTouchPad("UP_DOWN", "A_B");
 		touchPad.cameras = [camHit];
+		createShaders('damn' ,0);
 		super.create();
 		var LogoShake = new FlxTimer().start(0.001, function(tmr:FlxTimer){LogoShake();});
 	}
@@ -127,7 +130,7 @@ class MainMenuState extends MusicBeatState
 	{
 	    lol.cameras = [camOpt];
 	    nowtime = nowtime + 0.1;
-	    createShaders('damn' ,nowtime);
+	    if(shader != null) shader.setFloat('iTime' ,itime);
 	
 	    camOpt.zoom = camSp.zoom;
 	    
@@ -193,14 +196,15 @@ class MainMenuState extends MusicBeatState
 	    super.update(elapsed);
 	}
 	
-	function createShaders(name:String ,itime:Float){
-	    var frag = File.getContent(Paths.getSharedPath('shaders/' + name +'.frag'));
-	    var shader = new FlxRuntimeShader(frag, null);
+	public function createShaders(name:String = null ,itime:Float){
+	    var frag:String = null;
+	    if(name != null) frag = File.getContent(Paths.getSharedPath('shaders/' + name +'.frag'));
+	    AllShader = new FlxRuntimeShader(frag, null);
 	    
-	    filter = new ShaderFilter(shader);
+	    filter = new ShaderFilter(AllShader);
 	    FlxG.game.setFilters([filter]);
 	    //camSp.set__filters([filter]);
-	    shader.setFloat('iTime' ,itime);
+	    
 	}
 	
 	function CamZoom(){

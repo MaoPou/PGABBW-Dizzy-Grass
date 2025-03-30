@@ -16,8 +16,8 @@
       "name": "flixel",
       "type": "git",
       "dir": null,
-      "ref": "5.5.0",
-      "url": "https://github.com/MobilePorting/flixel"
+      "ref": "dev",
+      "url": "https://github.com/beihu235/flixel"
     },
     {
       "name": "flixel-addons",

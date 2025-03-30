@@ -59,7 +59,7 @@ class MainMenuState extends MusicBeatState
 	    var officeTime = FlxTimer.wait(0.145, () -> FlxTimer.wait(60 / bpm, () -> CamZoom()));
 	    var officeTimeLogo = FlxTimer.wait(0.36, () -> FlxTimer.wait(30 / bpm, () -> LogoAngle()));
 	
-	    freakyMenu = flixel.sound.FlxSound(Paths.music('freakyMenu','shared'));
+	    freakyMenu = FlxG.sound.play(Paths.music('freakyMenu','shared'));
 	    
 	    camSp = new FlxCamera();
 	    camOpt = new FlxCamera();
@@ -79,7 +79,7 @@ class MainMenuState extends MusicBeatState
 	    add(lol);
 	    
 	    /////
-	    var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.getSharedPath('images/MainMenu/menuBG', false));
+	    var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('images/MainMenu/menuBG', null, false));
 		bg.scrollFactor.set(0, 0);
 		bg.scale.x = FlxG.width / bg.width;
 		bg.scale.y = FlxG.height / bg.height;

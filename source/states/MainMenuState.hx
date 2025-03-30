@@ -19,7 +19,7 @@ class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.7.3';
 	var camSp:FlxCamera;
-	var camOpt:FlxCamera;
+        var camOpt:FlxCamera;
 	
 	var camHit:FlxCamera;
 	
@@ -50,20 +50,16 @@ class MainMenuState extends MusicBeatState
 	var nowtime:Float = 0;
 	var canChoose:Bool = true;
 	
-	var officeTime = FlxTimer.wait(0.145, () -> FlxTimer.wait(60 / bpm, () -> CamZoom()));
-	var officeTimeLogo = FlxTimer.wait(0.36, () -> FlxTimer.wait(30 / bpm, () -> LogoAngle()));
-	
 	var LogoAngles:Float = 3;
 	var shakermax:Int = 25;
 	
 	
 	override function create()
 	{
-	    freakyMenu = FlxG.sound.playMusic(Paths.music('freakyMenu','shared'));
-	    
-	    camGame.alpha = 0;
-	    camHUD.alpha = 0;
-	    camOther.alpha = 0;
+	    var officeTime = FlxTimer.wait(0.145, () -> FlxTimer.wait(60 / bpm, () -> CamZoom()));
+	    var officeTimeLogo = FlxTimer.wait(0.36, () -> FlxTimer.wait(30 / bpm, () -> LogoAngle()));
+	
+	    freakyMenu = flixel.sound.FlxSound(Paths.music('freakyMenu','shared'));
 	    
 	    camSp = new FlxCamera();
 	    camOpt = new FlxCamera();

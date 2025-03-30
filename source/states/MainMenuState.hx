@@ -18,10 +18,9 @@ import options.OptionsState;
 class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.7.3';
+	var camGame:FlxCamera;
 	var camSp:FlxCamera;
         var camOpt:FlxCamera;
-	
-	var camHit:FlxCamera;
 	
 	var lol:FlxText;
 	var AllOption:Array<String> = [
@@ -60,7 +59,7 @@ class MainMenuState extends MusicBeatState
 	    var officeTimeLogo = new FlxTimer().start(0.36, function(tmr:FlxTimer){new FlxTimer().start(30 / bpm,function(tmr:FlxTimer) {LogoAngle();});});
 	
 	    //freakyMenu = FlxG.sound.play(Paths.music('freakyMenu'));
-	    
+	    camGame = initPsychCamera();
 	    camSp = new FlxCamera();
 	    camOpt = new FlxCamera();
 	    

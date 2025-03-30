@@ -113,6 +113,7 @@ class StoryMenuState extends MusicBeatState
 	    add(rightArrow);
 	    
 	    addTouchPad("LEFT_RIGHT", "A_B");
+	    touchPad.cameras[debugCamera];
 	}
 	
 	override function update(elapsed:Float)

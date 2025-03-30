@@ -56,8 +56,8 @@ class MainMenuState extends MusicBeatState
 	
 	override function create()
 	{
-	    var officeTime = FlxTimer.wait(0.145, () -> FlxTimer.wait(60 / bpm, () -> CamZoom()));
-	    var officeTimeLogo = FlxTimer.wait(0.36, () -> FlxTimer.wait(30 / bpm, () -> LogoAngle()));
+	    var officeTime = FlxTimer().start(0.145, function(tmr:FlxTimer){FlxTimer().start(60 / bpm, function(tmr:FlxTimer){CamZoom();});});
+	    var officeTimeLogo = FlxTimer().start(0.36, function(tmr:FlxTimer){FlxTimer().start(30 / bpm,function(tmr:FlxTimer) {LogoAngle()});});
 	
 	    freakyMenu = FlxG.sound.play(Paths.music('freakyMenu','shared'));
 	    
@@ -121,7 +121,7 @@ class MainMenuState extends MusicBeatState
 		addTouchPad("UP_DOWN", "A_B");
 		
 		super.create();
-		var LogoShake = FlxTimer.wait(0.001, () -> LogoShake());
+		var LogoShake = FlxTimer().start(0.001, function(tmr:FlxTimer){LogoShake();});
 	}
 	
 	override function update(elapsed:Float)
@@ -210,7 +210,7 @@ class MainMenuState extends MusicBeatState
 	}
 	
 	function CamZoom(){
-	    var zoomTime = FlxTimer.wait(60 / bpm, () -> CamZoom());
+	    var zoomTime = FlxTimer().start(60 / bpm, function(tmr:FlxTimer){CamZoom();});
 	    camSp.zoom = 1.05;	
 		var cameraTween = FlxTween.tween(camSp, {zoom: 1}, 1, {ease: FlxEase.cubeOut});
 	}
@@ -218,12 +218,12 @@ class MainMenuState extends MusicBeatState
 	function LogoShake(){
 	    shakermax = shakermax * -1;
 	         var tweenY = FlxTween.tween(logo, {y: logo.y + shakermax}, 2, {ease: FlxEase.quadInOut});
-	    var LogoShake = FlxTimer.wait(2, () -> LogoShake());
+	    var LogoShake = FlxTimer().start(2, function(tmr:FlxTimer){LogoShake();});
 	}
 	
 	function LogoAngle(){
 	    
-	    var angleTime = FlxTimer.wait(30 / bpm, () -> LogoAngle());
+	    var angleTime = FlxTimer().start(30 / bpm, function(tmr:FlxTimer){LogoAngle();});
 	     LogoAngles = LogoAngles * -1;
 	     if (LogoAngles > 0) {
 	         var LogoTween = FlxTween.tween(logo, {angle: LogoAngles}, 30 / bpm, {ease: FlxEase.cubeInOut});

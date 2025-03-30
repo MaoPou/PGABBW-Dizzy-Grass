@@ -46,6 +46,7 @@ class StoryMenuState extends MusicBeatState
 	        "hideFreeplay": false
 	    }'
 	];
+	var canAccept:Bool = true;
 	override function create()
 	{
 	    super.create();
@@ -120,28 +121,31 @@ class StoryMenuState extends MusicBeatState
 	{
 	    if (nowChoose < 0) nowChoose = loadedWeeks.length;
 	    if (nowChoose > loadedWeeks.length) nowChoose = 0;
-	    
-	    if (controls.UI_LEFT_P){
-	        nowChoose--;
-	        FlxG.sound.play(Paths.sound('scrollMenu'));
-	    }
-	    if (controls.UI_RIGHT_P){
-	        nowChoose++;
-	        FlxG.sound.play(Paths.sound('scrollMenu'));
-	    }
-	    if (controls.ACCEPT){
-	        FlxG.sound.play(Paths.sound('confirmMenu'));
-	        bgCamera.zoom = 1.1;
-	        FlxTween.tween(bgCamera, {zoom: 1}, 2, {ease: FlxEase.expoOut});
-	        FlxFlicker.flicker(WeekBG, 1, 0.1, true, false, function(fxl:FlxFlicker){
-	            selectWeek();
-	        });
+	    if (canAccept){
+	    	if (controls.UI_LEFT_P){
+	        	nowChoose--;
+	        	FlxG.sound.play(Paths.sound('scrollMenu'));
+	    	}
+	    	if (controls.UI_RIGHT_P){
+	        	nowChoose++;
+	        	FlxG.sound.play(Paths.sound('scrollMenu'));
+	    	}
+	    	if (controls.ACCEPT){
+			canAccept = false;
+	        	FlxG.sound.play(Paths.sound('confirmMenu'));
+	        	bgCamera.zoom = 1.1;
+	        	FlxTween.tween(bgCamera, {zoom: 1}, 2, {ease: FlxEase.expoOut});
+	        	FlxFlicker.flicker(WeekBG, 1, 0.1, true, false, function(fxl:FlxFlicker){
+	            	selectWeek();
+	        	});
 	        
-	    }
-	    if (controls.BACK)
-	    {
-		FlxG.sound.play(Paths.sound('cancelMenu'));
-		MusicBeatState.switchState(new MainMenuState());
+	    	}
+	    	if (controls.BACK)
+	    	{
+			canAccept = false;
+			FlxG.sound.play(Paths.sound('cancelMenu'));
+			MusicBeatState.switchState(new MainMenuState());
+	    	}
 	    }
 	    super.update(elapsed);
 	}

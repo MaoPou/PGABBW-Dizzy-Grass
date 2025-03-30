@@ -12,6 +12,7 @@ class StoryMenuState extends MusicBeatState
 {
     var bgCamera:FlxCamera;
     var debugCamera:FlxCamera;
+	
     var WeekBG:FlxSprite;
     var UpBlackRect:FlxSprite;
     var DownBlackRect:FlxSprite;

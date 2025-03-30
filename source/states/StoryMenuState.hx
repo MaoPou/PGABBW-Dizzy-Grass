@@ -10,6 +10,7 @@ import flixel.text.FlxText;
 
 class StoryMenuState extends MusicBeatState
 {
+    var camGame:FlxCamera;
     var bgCamera:FlxCamera;
     var debugCamera:FlxCamera;
 	
@@ -47,7 +48,10 @@ class StoryMenuState extends MusicBeatState
 	];
 	override function create()
 	{
+	    super.create();
+		
 	    PlayState.isStoryMode = true;
+	    camGame = initPsychCamera();
 	    bgCamera = new FlxCamera();
 	    debugCamera = new FlxCamera();
 
@@ -109,7 +113,6 @@ class StoryMenuState extends MusicBeatState
 	    add(rightArrow);
 	    
 	    addTouchPad("LEFT_RIGHT", "A_B");
-	    super.create();
 	}
 	
 	override function update(elapsed:Float)

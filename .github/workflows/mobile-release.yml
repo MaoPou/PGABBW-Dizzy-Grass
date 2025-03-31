@@ -49,7 +49,7 @@ jobs:
       - name: Download Windows Build
         uses: actions/download-artifact@main
         with:
-           name: windowsBuild
+           name: windowsBuild-x86_64
            path: /home/runner
 
       - name: Publish The Release
